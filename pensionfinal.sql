@@ -61,3 +61,12 @@ FROM (
     FROM CONSULTANTSPENSION
 )  AS CombinedTables
 GROUP BY CombinedTables.Type, CombinedTables.Category, CombinedTables.[pension rollup], CombinedTables.[Date];
+
+#This SQL code creates a new table called "Pension Division" by combining data from four different tables: "FACPENSION," "PLANGENPENSION," "CJAPENSION," and "CONSULTANTSPENSION." The code performs four separate SELECT queries using UNION ALL to combine data from each source table.
+
+#Each SELECT query within the UNION ALL includes columns for "Type," "Category," "[pension rollup]," and "[Date]," along with columns for summing values from each source table, named "FAC_SUM," "Plangen_SUM," "CJA_SUM," and "Consultants_SUM."
+
+#The main query then groups the data from the UNION ALL results based on "Type," "Category," "[pension rollup]," and "[Date]." It calculates the sum of "FAC_SUM," "Plangen_SUM," "CJA_SUM," and "Consultants_SUM" for each group using the SUM function.
+
+#The result is a new table "Pension Division" containing grouped data from the four source tables, where each row represents a unique combination of "Type," "Category," "[pension rollup]," and "[Date]," along with the corresponding sums from each source table. The calculated total sum of "FAC_SUM," "Plangen_SUM," "CJA_SUM," and "Consultants_SUM" for each group is also included in the new table.
+
