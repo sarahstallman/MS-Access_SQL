@@ -34,3 +34,12 @@ FROM (SELECT
         FROM CONSULTANTSCAPTIVE
     )  AS CombinedTables
 GROUP BY CombinedTables.Type, CombinedTables.Category, CombinedTables.[captive rollup], CombinedTables.[Date];
+
+#This SQL code combines data from three different tables: "[P&CCAPTIVE]," "ENDEAVOURCAPTIVE," and "CONSULTANTSCAPTIVE" into a new table called "[Captive Division]." The code performs three separate SELECT queries using UNION ALL to combine data from each source table.
+
+#Each SELECT query within the UNION ALL includes columns for "Type," "Category," "[captive rollup]," and "[Date]," along with columns for summing values from each source table, named "PC_SUM," "Endeavour_SUM," and "Consultants_SUM."
+
+#The main query then groups the data from the UNION ALL results based on "Type," "Category," "[captive rollup]," and "[Date]." It calculates the sum of "PC_SUM," "Endeavour_SUM," and "Consultants_SUM" for each group using the SUM function.
+
+#The result is a new table "[Captive Division]" containing grouped data from the three source tables, where each row represents a unique combination of "Type," "Category," "[captive rollup]," and "[Date]," along with the corresponding sums from each source table.
+
